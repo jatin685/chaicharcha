@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai & Charcha Cafe & Roastery | Customer Loyalty & Rewards Club</title>
+    <meta name="description"
+        content="Chai & Charcha Cafe & Roastery - Artisanal Coffee, Kulhad Chai, Wood-Fired Sourdough Pizzas, Fresh Botanical Mojitos & VIP Loyalty Club.">
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <script>
+    // High-Res Curated Fallback Images Map by Category
+    const CATEGORY_FALLBACKS = {
+        Chai: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=700&q=80",
+        Coffee: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=700&q=80",
+        Pizzas: "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=700&q=80",
+        Mojitos: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=700&q=80",
+        Bites: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=700&q=80"
+    };
+
+    // Global Image Error Handler (Guarantees NO picture is ever broken)
+    window.handleImgError = function (img, category) {
+        img.onerror = null; // Prevent infinite loop
+        const fallback = CATEGORY_FALLBACKS[category] || "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=700&q=80";
+        img.src = fallback;
+    };
+    </script>
+</head>
+
+<body>
+
+    <!-- Top Announcement Bar -->
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <span class="badge-pill">VIP Club Privilege</span>
+            <span>Earn 10% Charcha Coins + Flat ₹120 OFF on Group Baithaks!</span>
+        </div>
+        <div class="top-bar-right">
+            <span>📍 Ludhiana Flagship • Sector 35 Chandigarh • CP New Delhi</span>
+            <span style="opacity: 0.5;">|</span>
+            <span>Table Reservation & Hospitality: +91 98765-43210</span>
+        </div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="header-container">
+            <a href="#home" class="brand-wrapper">
+                <div class="brand-logo-icon">
+                    <span style="font-size: 1.4rem;">☕</span>
+                </div>
+                <div class="brand-text">
+                    <h1>Chai & <span>Charcha</span></h1>
+                    <p>ARTISANAL KAAPI, KULHAD CHAI, PIZZAS & MOJITOS</p>
+                </div>
+            </a>
+
+            <!-- Navigation Tabs -->
+            <nav class="main-nav">
+                <button class="nav-btn active" data-target="home">Home</button>
+                <button class="nav-btn" data-target="overviewSection">Overview</button>
+                <button class="nav-btn" data-target="feedbackSection">Guest Reviews</button>
+                <button class="nav-btn" data-target="gallerySection">Visual Showcase</button>
+                <button class="nav-btn" data-target="memberPortalSection">Digital Card</button>
+                <button class="nav-btn" data-target="menuSection">Cafe Menu</button>
+                <button class="nav-btn" data-target="rewardsSection">Rewards Store</button>
+                <button class="nav-btn" data-target="calculatorSection">Calculator</button>
+                <button class="nav-btn" data-target="insightsSection">Community Pulse</button>
+            </nav>
+
+            <!-- Actions & Outlet Switcher -->
+            <div class="header-actions">
+                <div class="branch-select-box">
+                    <span>📍</span>
+                    <select id="branchSelect" aria-label="Select Cafe Branch">
+                        <option value="ldh-mt">Model Town Flagship, Ludhiana</option>
+                        <option value="chd-sec35">Sec 35-C, Chandigarh</option>
+                        <option value="del-cp">Connaught Place, New Delhi</option>
+                    </select>
+                </div>
+                <button class="btn-terminal" id="terminalQuickBtn">
+                    <span>⚡ Cashier POS Desk</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+
+        <!-- ================= HERO SECTION WITH ANIMATED FOOD & CAFE ================= -->
+        <section class="hero-section" id="home">
+            <div class="hero-glow-1"></div>
+            <div class="hero-glow-2"></div>
+
+            <div class="hero-container">
+                <!-- Left Hero Content -->
+                <div class="hero-content">
+                    <div class="hero-tag">
+                        <span class="pulse-dot"></span>
+                        <span>India's Most Rewarding Cafe & Roastery</span>
+                    </div>
+
+                    <h2 class="hero-title">
+                        Every Sip & Bite Earns Rewards. <br>
+                        Every Baithak <span class="gradient-text">Brings You Closer.</span>
+                    </h2>
+
+                    <p class="hero-subtitle">
+                        Welcome to <strong>Chai & Charcha</strong>. Indulge in slow-steeped clay kulhad chai, artisanal
+                        Arabica espresso, charred wood-fired sourdough pizzas, and hand-muddled mint mojitos. Scan your
+                        digital QR pass at the billing desk to unlock instant discounts and digital stamps.
+                    </p>
+
+                    <!-- Key Loyalty Value Proof Points -->
+                    <div class="hero-stats-row">
+                        <div class="stat-item">
+                            <span class="stat-num">10% Coins</span>
+                            <span class="stat-lbl">Cashback on Every Bill (1 Coin = ₹1)</span>
+                        </div>
+                        <div style="width: 1px; background: rgba(255,255,255,0.15);"></div>
+                        <div class="stat-item">
+                            <span class="stat-num">₹120 OFF</span>
+                            <span class="stat-lbl">Instant Discount on Orders &gt; ₹600</span>
+                        </div>
+                        <div style="width: 1px; background: rgba(255,255,255,0.15);"></div>
+                        <div class="stat-item">
+                            <span class="stat-num">8th Beverage</span>
+                            <span class="stat-lbl">100% Free with Stamp Card</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-cta-group">
+                        <a href="#memberPortalSection" class="btn-primary-glow">
+                            <span>Open Jatin's VIP Club Pass</span>
+                            <span>→</span>
+                        </a>
+                        <a href="#overviewSection" class="btn-outline-glow">
+                            <span>Explore Cafe Overview & Story</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Hero: Animated Food & Cafe Visual Showcase -->
+                <div class="hero-visual-stage">
+                    <div class="stage-ambient-circle"></div>
+
+                    <!-- Main Highlight Animated Cafe Card with Interactive Dish Switcher -->
+                    <div class="main-cafe-card">
+                        <div class="cafe-card-media">
+                            <img id="heroDishImg"
+                                src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80"
+                                alt="Specialty Food Dish" onerror="handleImgError(this, 'Chai')">
+
+                            <!-- Animated Steam Particles for Hot Beverages -->
+                            <div class="steam-wrap" id="heroSteamWrap">
+                                <span class="steam-particle"></span>
+                                <span class="steam-particle"></span>
+                                <span class="steam-particle"></span>
+                            </div>
+                        </div>
+
+                        <div class="cafe-card-body">
+                            <div class="cafe-card-tag">
+                                <span class="cafe-pill" id="heroDishTag">Handcrafted Kulhad Brew</span>
+                                <span class="cafe-price" id="heroDishPrice">₹90</span>
+                            </div>
+                            <h3 id="heroDishTitle">Ginger Cardamom Kulhad Chai</h3>
+                            <p id="heroDishDesc">Slow-simmered Assam tea leaves with freshly pounded ginger and fragrant
+                                green cardamom in an earthy clay kulhad.</p>
+
+                            <!-- Dish Switcher Navigation -->
+                            <div class="hero-dish-nav">
+                                <button class="hero-dish-nav-btn" id="heroDishPrev" title="Previous Dish">‹</button>
+                                <span style="font-size:0.7rem; color:#fed7aa;">Swipe Dishes (Chai • Pizza • Coffee •
+                                    Mojito)</span>
+                                <button class="hero-dish-nav-btn" id="heroDishNext" title="Next Dish">›</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Satellite Animated Badges -->
+                    <div class="floating-badge badge-1">
+                        <div class="badge-icon-box">☕</div>
+                        <div class="badge-meta">
+                            <h4>Buy 7, 8th Free</h4>
+                            <p>Digital Stamp Tracker</p>
+                        </div>
+                    </div>
+
+                    <div class="floating-badge badge-2">
+                        <div class="badge-icon-box">🍕</div>
+                        <div class="badge-meta">
+                            <h4>Wood-Fired Pizza</h4>
+                            <p>Handcrafted Sourdough</p>
+                        </div>
+                    </div>
+
+                    <div class="floating-badge badge-3">
+                        <div class="badge-icon-box">🍹</div>
+                        <div class="badge-meta">
+                            <h4>Mint Mojito</h4>
+                            <p>Crushed Ice Coolers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= GINGER CHAI ANIMATED SPOTLIGHT CARD (UPPER HOME PAGE) ================= -->
+        <section class="main-wrapper" style="padding-top:20px; padding-bottom:20px;">
+            <div class="ginger-chai-spotlight">
+                <div class="ginger-spotlight-img-box">
+                    <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80"
+                        alt="Special Ginger Cardamom Kulhad Chai" onerror="handleImgError(this, 'Chai')">
+                    <div class="steam-wrap" style="top:20px; left:40%;">
+                        <span class="steam-particle"></span>
+                        <span class="steam-particle"></span>
+                        <span class="steam-particle"></span>
+                    </div>
+                </div>
+
+                <div>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
+                        <span class="spice-tag-pill">🔥 Freshly Crushed Adrak (Ginger)</span>
+                        <span class="spice-tag-pill">🌿 Green Elaichi & Cinnamon</span>
+                        <span class="spice-tag-pill">🍯 100% Earthen Clay Kulhad</span>
+                    </div>
+                    <h3 style="font-size:1.6rem; font-weight:800; color:#fbbf24; line-height:1.2; margin-bottom:10px;">
+                        Signature Ginger Cardamom Masala Chai
+                    </h3>
+                    <p style="font-size:0.88rem; color:#e5d2c5; line-height:1.6; margin-bottom:16px;">
+                        Our flagship brew. Premium single-estate Assam black tea leaves boiled slow with freshly grated
+                        spicy ginger, crushed green cardamom pods, and rich full-cream milk. Served piping hot in
+                        natural kulhads to impart a distinct earthy aroma.
+                    </p>
+                    <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+                        <span style="font-size:1.4rem; font-weight:900; color:white;">₹90 <span
+                                style="font-size:0.8rem; color:#fed7aa; font-weight:normal;">/ Kulhad</span></span>
+                        <button class="btn-primary-glow" onclick="orderGingerChai()"
+                            style="padding:10px 22px; font-size:0.86rem;">
+                            <span>Add to Counter Bill ＋</span>
+                        </button>
+                        <span style="font-size:0.75rem; color:#86efac; font-weight:600;">🪙 Earns +9 Charcha Coins & 1
+                            Stamp</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CAFE OVERVIEW & BRAND STORY SECTION ================= -->
+        <section class="main-wrapper" id="overviewSection">
+            <div class="section-head">
+                <span class="section-badge">Brand Overview</span>
+                <h3 class="section-title">The Story Behind Chai & Charcha</h3>
+                <p class="section-desc">
+                    Founded by <strong>Jatin</strong>, Chai & Charcha was created to revive India's beloved baithak
+                    culture — blending traditional street teas with artisanal modern dining.
+                </p>
+            </div>
+
+            <div class="overview-grid">
+                <!-- Pillar 1: Chai Craft -->
+                <div class="overview-card">
+                    <div>
+                        <div class="overview-icon-badge">🫖</div>
+                        <h4>Authentic Kulhad Teas</h4>
+                        <p>
+                            From slow-simmered ginger adrak masala chai to royal Kashmiri saffron kahwa, our teas are
+                            steeped using traditional whole spices in natural earthenware cups.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Pillar 2: Artisanal Kaapi -->
+                <div class="overview-card">
+                    <div>
+                        <div class="overview-icon-badge">☕</div>
+                        <h4>Specialty Kaapi & Espresso</h4>
+                        <p>
+                            We source plantation Arabica beans from Chikmagalur and Kodagu, roasted to perfection for
+                            velvety flat whites, iced cold brews, and authentic South Indian degree filter kaapi.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Pillar 3: Wood-Fired Sourdough Pizzas -->
+                <div class="overview-card">
+                    <div>
+                        <div class="overview-icon-badge">🍕</div>
+                        <h4>Wood-Fired Gourmet Pizzas</h4>
+                        <p>
+                            48-hour fermented sourdough crusts baked at 450°C in our wood-fired oven. Topped with
+                            charred tandoori paneer tikka, fresh basil, and creamy buffalo mozzarella.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Pillar 4: Botanical Mojitos & Coolers -->
+                <div class="overview-card">
+                    <div>
+                        <div class="overview-icon-badge">🍹</div>
+                        <h4>Fresh Botanical Mocktails</h4>
+                        <p>
+                            Handcrafted crushed-ice refreshments made with freshly picked garden mint, key lime juice,
+                            wild jamun berries, and fizzy sparkling soda to rejuvenate your day.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= UPPER HOMEPAGE CUSTOMER FEEDBACK & REVIEWS ================= -->
+        <section class="feedback-section" id="feedbackSection">
+            <div class="main-wrapper" style="padding:0;">
+                <div class="section-head">
+                    <span class="section-badge">Guest Testimonials</span>
+                    <h3 class="section-title">Loved by Foodies & Chai Lovers</h3>
+                    <p class="section-desc">
+                        Real experiences from our community of 2,400+ diners across Ludhiana, Chandigarh, and Delhi NCR.
+                    </p>
+                </div>
+
+                <!-- Live Reviews Grid -->
+                <div class="feedback-grid" id="reviewsGridContainer">
+                    <!-- Dynamically rendered via app.js -->
+                </div>
+
+                <!-- Submit Guest Feedback Card -->
+                <div class="review-form-card">
+                    <div>
+                        <h4 style="font-size:1.25rem; font-weight:800; color:var(--bg-dark);">Dined with Us Recently?
+                        </h4>
+                        <p style="font-size:0.82rem; color:var(--text-muted); margin-top:4px;">
+                            Share your review with Founder Jatin and the team. Verified member reviews earn <strong>+25
+                                Bonus Charcha Coins</strong>!
+                        </p>
+                        <div class="star-picker" id="starPicker">
+                            <span data-val="1">★</span>
+                            <span data-val="2">★</span>
+                            <span data-val="3">★</span>
+                            <span data-val="4">★</span>
+                            <span data-val="5">★</span>
+                        </div>
+                        <span style="font-size:0.75rem; color:#9a3412; font-weight:700;">Click stars to rate your
+                            visit</span>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:12px;">
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+                            <input type="text" id="reviewAuthorName" placeholder="Your Full Name"
+                                style="padding:10px 14px; border:1px solid #eedccf; border-radius:8px; font-size:0.86rem; outline:none;"
+                                value="Jatin">
+                            <input type="text" id="reviewFavDish" placeholder="Favorite Item (e.g. Ginger Chai)"
+                                style="padding:10px 14px; border:1px solid #eedccf; border-radius:8px; font-size:0.86rem; outline:none;"
+                                value="Ginger Cardamom Kulhad Chai">
+                        </div>
+                        <textarea id="reviewComment" rows="2"
+                            placeholder="Tell us about the chai flavor, pizza crust, or hospitality..."
+                            style="padding:10px 14px; border:1px solid #eedccf; border-radius:8px; font-size:0.86rem; outline:none; resize:none;">The aroma of the fresh ginger and crushed elaichi in the kulhad chai was extraordinary!</textarea>
+                        <button class="btn-primary-glow" id="btnSubmitReview"
+                            style="padding:10px; justify-content:center; font-size:0.88rem;">
+                            Publish Guest Review Live ★
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= VISUAL SHOWCASE GALLERY: COFFEE, PIZZAS, MOJITOS, CHAI ================= -->
+        <section class="main-wrapper" id="gallerySection"
+            style="background:#fffcf9; border-bottom:1px solid var(--border-color);">
+            <div class="section-head">
+                <span class="section-badge">Gourmet Experience</span>
+                <h3 class="section-title">Freshly Crafted Daily in Our Kitchen</h3>
+                <p class="section-desc">
+                    From artisanal brews to wood-fired ovens and fresh botanical mocktails — every item earns you 10%
+                    Charcha Coins.
+                </p>
+            </div>
+
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+                <!-- 1. Coffee Card -->
+                <div
+                    style="background:white; border-radius:18px; overflow:hidden; border:1px solid #eedccf; box-shadow:0 4px 15px rgba(0,0,0,0.05); transition:all 0.3s ease;">
+                    <div style="height:190px; overflow:hidden; position:relative;">
+                        <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=600&q=80"
+                            alt="Artisanal Cappuccino & Latte Art" onerror="handleImgError(this, 'Coffee')"
+                            style="width:100%; height:100%; object-fit:cover; transition:transform 0.5s;">
+                        <span
+                            style="position:absolute; top:12px; left:12px; background:rgba(28,19,13,0.85); color:#fed7aa; padding:4px 10px; border-radius:99px; font-size:0.72rem; font-weight:700;">☕
+                            Barista Espresso</span>
+                    </div>
+                    <div style="padding:18px;">
+                        <h4 style="font-size:1.05rem; font-weight:800; color:#1c130d;">Single-Origin Coffees</h4>
+                        <p style="font-size:0.8rem; color:#6b5a50; margin:6px 0 12px;">Velvet cappuccinos, cold brews,
+                            and authentic South Indian degree filter kaapi.</p>
+                        <span style="color:#c2410c; font-size:0.78rem; font-weight:700;">Earns +18 Coins / cup</span>
+                    </div>
+                </div>
+
+                <!-- 2. Wood-Fired Pizza Card -->
+                <div
+                    style="background:white; border-radius:18px; overflow:hidden; border:1px solid #eedccf; box-shadow:0 4px 15px rgba(0,0,0,0.05); transition:all 0.3s ease;">
+                    <div style="height:190px; overflow:hidden; position:relative;">
+                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80"
+                            alt="Wood-fired Gourmet Pizza" onerror="handleImgError(this, 'Pizzas')"
+                            style="width:100%; height:100%; object-fit:cover; transition:transform 0.5s;">
+                        <span
+                            style="position:absolute; top:12px; left:12px; background:rgba(28,19,13,0.85); color:#fed7aa; padding:4px 10px; border-radius:99px; font-size:0.72rem; font-weight:700;">🍕
+                            Hand-Tossed Pizzas</span>
+                    </div>
+                    <div style="padding:18px;">
+                        <h4 style="font-size:1.05rem; font-weight:800; color:#1c130d;">Wood-Fired Pizzas</h4>
+                        <p style="font-size:0.8rem; color:#6b5a50; margin:6px 0 12px;">Charred sourdough crust topped
+                            with smoked paneer tikka, fresh basil & buffalo mozzarella.</p>
+                        <span style="color:#c2410c; font-size:0.78rem; font-weight:700;">Earns +34 Coins / pizza</span>
+                    </div>
+                </div>
+
+                <!-- 3. Mojito & Mocktail Card -->
+                <div
+                    style="background:white; border-radius:18px; overflow:hidden; border:1px solid #eedccf; box-shadow:0 4px 15px rgba(0,0,0,0.05); transition:all 0.3s ease;">
+                    <div style="height:190px; overflow:hidden; position:relative;">
+                        <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80"
+                            alt="Fresh Mint Mojito Mocktail" onerror="handleImgError(this, 'Mojitos')"
+                            style="width:100%; height:100%; object-fit:cover; transition:transform 0.5s;">
+                        <span
+                            style="position:absolute; top:12px; left:12px; background:rgba(28,19,13,0.85); color:#fed7aa; padding:4px 10px; border-radius:99px; font-size:0.72rem; font-weight:700;">🍹
+                            Botanical Mojitos</span>
+                    </div>
+                    <div style="padding:18px;">
+                        <h4 style="font-size:1.05rem; font-weight:800; color:#1c130d;">Chilled Mint Mojitos</h4>
+                        <p style="font-size:0.8rem; color:#6b5a50; margin:6px 0 12px;">Muddled fresh garden mint, key
+                            lime juice, raw cane syrup, and sparkling soda on ice.</p>
+                        <span style="color:#c2410c; font-size:0.78rem; font-weight:700;">Earns +15 Coins / cooler</span>
+                    </div>
+                </div>
+
+                <!-- 4. Chai & Samosa Card -->
+                <div
+                    style="background:white; border-radius:18px; overflow:hidden; border:1px solid #eedccf; box-shadow:0 4px 15px rgba(0,0,0,0.05); transition:all 0.3s ease;">
+                    <div style="height:190px; overflow:hidden; position:relative;">
+                        <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80"
+                            alt="Hot Cutting Masala Chai" onerror="handleImgError(this, 'Chai')"
+                            style="width:100%; height:100%; object-fit:cover; transition:transform 0.5s;">
+                        <span
+                            style="position:absolute; top:12px; left:12px; background:rgba(28,19,13,0.85); color:#fed7aa; padding:4px 10px; border-radius:99px; font-size:0.72rem; font-weight:700;">🫖
+                            Kulhad Baithak</span>
+                    </div>
+                    <div style="padding:18px;">
+                        <h4 style="font-size:1.05rem; font-weight:800; color:#1c130d;">Desi Kulhad Chai</h4>
+                        <p style="font-size:0.8rem; color:#6b5a50; margin:6px 0 12px;">Slow boiled adrak elaichi chai
+                            served with flaky samosa croissants and hot bun maska.</p>
+                        <span style="color:#c2410c; font-size:0.78rem; font-weight:700;">Earns +10 Coins / chai</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION: MEMBER LOYALTY PORTAL & DIGITAL PASS ================= -->
+        <section class="main-wrapper" id="memberPortalSection">
+            <div class="section-head">
+                <span class="section-badge">VIP Member Lounge</span>
+                <h3 class="section-title">Your Digital Membership Pass</h3>
+                <p class="section-desc">
+                    Scan your personal QR code at the billing counter or quote your mobile number to earn Charcha Coins
+                    and redeem instant rewards.
+                </p>
+            </div>
+
+            <div class="portal-grid">
+                <!-- Left Column: Virtual Member Pass & Account Switcher -->
+                <div>
+                    <!-- Digital Membership Card (Sleek Indian Cafe Card) -->
+                    <div class="virtual-pass-card">
+                        <div class="pass-header">
+                            <div class="pass-brand">
+                                <div class="pass-brand-icon">☕</div>
+                                <div>
+                                    <h3>Chai & Charcha</h3>
+                                    <p style="font-size:0.68rem;color:#fde68a;">VIP REWARDS PASS</p>
+                                </div>
+                            </div>
+                            <span class="pass-tier-badge" id="passMemberTier">Platinum Club Elite</span>
+                        </div>
+
+                        <div class="pass-mid">
+                            <h2 class="pass-member-name" id="passMemberName">Jatin</h2>
+                            <p class="pass-member-id" id="passMemberId">Card ID: CC-8421 • 9876543210</p>
+
+                            <div class="pass-balance-row">
+                                <div class="pass-stat">
+                                    <span class="pass-stat-val" id="passCoinsBalance">480</span>
+                                    <span class="pass-stat-lbl">Charcha Coins <span id="passInrValue">(Worth
+                                            ₹480)</span></span>
+                                </div>
+                                <div class="pass-stat">
+                                    <span class="pass-stat-val" id="passVisitsCount">14</span>
+                                    <span class="pass-stat-lbl">Cafe Visits</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pass-footer">
+                            <div>
+                                <p style="font-size:0.7rem;color:#d1b5a5;margin-bottom:4px;">Cashier Counter Scan Code
+                                </p>
+                                <div class="pass-qr-box" id="passQRCode" title="Show this QR at Cashier">
+                                    <!-- Dynamic QR injected here -->
+                                </div>
+                            </div>
+                            <div class="pass-actions-col">
+                                <a href="#rewardsSection" class="btn-pass-action">Redeem Perks</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Demo Account Switcher -->
+                    <div class="member-lookup-card">
+                        <div class="lookup-head">
+                            <h4>Switch Member Profiles</h4>
+                            <span style="font-size:0.75rem;color:var(--primary);font-weight:700;">1-Click Login</span>
+                        </div>
+                        <p style="font-size:0.78rem;color:var(--text-muted);margin-bottom:10px;">
+                            Quickly test account balances, points, and digital stamp progression:
+                        </p>
+                        <div class="demo-account-pills" id="demoPillsContainer">
+                            <!-- Injected by app.js -->
+                        </div>
+
+                        <div class="search-input-group">
+                            <input type="text" id="memberSearchInput" placeholder="Lookup Mobile (e.g. 9876543210)" />
+                            <button class="btn-search" id="searchMemberBtn">Lookup / Enroll</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Digital Stamp Card & History Ledger -->
+                <div class="portal-details-card">
+                    <!-- Digital Stamp Card Module -->
+                    <div class="stamp-card-section">
+                        <div class="stamp-header">
+                            <h4>
+                                <span>☕</span>
+                                <span>Beverage Stamp Card</span>
+                            </h4>
+                            <span class="stamp-badge-count" id="stampCountBadge">6 of 8 Stamps</span>
+                        </div>
+
+                        <p style="font-size:0.82rem;color:#7c2d12;margin-bottom:14px;">
+                            Buy any handcrafted Chai, Filter Kaapi, or Cold Brew (min ₹120) to collect a stamp. Complete
+                            7 stamps to unlock your <strong>8th Beverage 100% Free</strong>!
+                        </p>
+
+                        <!-- 8 Interactive Stamp Slots -->
+                        <div class="stamp-grid" id="stampSlotsGrid">
+                            <!-- Injected via JavaScript -->
+                        </div>
+
+                        <div class="stamp-footer">
+                            <span>💡</span>
+                            <span>Privilege Perk: Free drink voucher activates automatically once you collect 7
+                                stamps!</span>
+                        </div>
+                    </div>
+
+                    <!-- Transaction Ledger -->
+                    <div class="history-section">
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+                            <h4>Recent Activity & Rewards Ledger</h4>
+                            <span style="font-size:0.74rem;color:var(--text-muted);">Recorded live at cashier</span>
+                        </div>
+
+                        <div style="overflow-x:auto;">
+                            <table class="history-table">
+                                <thead>
+                                    <tr>
+                                        <th>Tx ID / Date</th>
+                                        <th>Details</th>
+                                        <th>Bill Amount</th>
+                                        <th>Coins Impact</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="historyTableBody">
+                                    <!-- Injected via app.js -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION: REWARDS STORE ================= -->
+        <section class="main-wrapper" id="rewardsSection"
+            style="background:#fffcf8;border-top:1px solid #f0e2d5;border-bottom:1px solid #f0e2d5;">
+            <div class="section-head">
+                <span class="section-badge">Rewards Store</span>
+                <h3 class="section-title">Claim Your Handcrafted Treats</h3>
+                <p class="section-desc">
+                    Redeem your earned Charcha Coins instantly. One-click voucher generation with zero hidden terms.
+                </p>
+            </div>
+
+            <!-- Rewards Grid -->
+            <div class="rewards-grid" id="rewardsGrid">
+                <!-- Dynamically generated from REWARDS_CATALOGUE in data.js -->
+            </div>
+        </section>
+
+        <!-- ================= SECTION: CAFE MENU & SPECIALTIES WITH CATEGORY FILTERS ================= -->
+        <section class="main-wrapper" id="menuSection">
+            <div class="section-head">
+                <span class="section-badge">Artisanal Offerings</span>
+                <h3 class="section-title">Crafted for Indian Food & Beverage Connoisseurs</h3>
+                <p class="section-desc">
+                    Explore our wood-fired pizzas, specialty coffees, refreshing mojitos, authentic kulhad chais, and
+                    gourmet bites.
+                </p>
+            </div>
+
+            <!-- Category Filter Tabs -->
+            <div class="menu-filter-bar">
+                <button class="menu-filter-btn active" data-category="All">🌟 All Menu Items</button>
+                <button class="menu-filter-btn" data-category="Chai">☕ Kulhad Chai & Teas</button>
+                <button class="menu-filter-btn" data-category="Coffee">☕ Artisanal Coffee</button>
+                <button class="menu-filter-btn" data-category="Pizzas">🍕 Wood-Fired Pizzas</button>
+                <button class="menu-filter-btn" data-category="Mojitos">🍹 Fresh Mojitos & Coolers</button>
+                <button class="menu-filter-btn" data-category="Bites">🥐 Gourmet Bites & Sizzlers</button>
+            </div>
+
+            <div class="menu-grid" id="menuGrid">
+                <!-- Dynamically injected from CAFE_MENU in data.js -->
+            </div>
+        </section>
+
+        <!-- ================= SECTION: INTERACTIVE REWARDS & SAVINGS CALCULATOR ================= -->
+        <section class="main-wrapper" id="calculatorSection" style="background:#fbf8f5;">
+            <div class="section-head">
+                <span class="section-badge">Live Value Estimator</span>
+                <h3 class="section-title">Calculate Your Savings & Rewards</h3>
+                <p class="section-desc">
+                    Slide to any dining spend to see your instant coin cashback, discount vouchers, and stamps earned.
+                </p>
+            </div>
+
+            <div class="calc-card-container">
+                <div
+                    style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:10px;">
+                    <div>
+                        <h4 style="font-size:1.25rem; font-weight:800; color:#fed7aa;">How much are you planning to
+                            spend?</h4>
+                        <p style="font-size:0.8rem; color:#d1b5a5;">Slide to calculate total loyalty cashback on your
+                            order</p>
+                    </div>
+                    <div style="font-size:2rem; font-weight:900; color:#fbbf24;" id="calcSpendDisplay">₹650</div>
+                </div>
+
+                <div class="calc-slider-wrap">
+                    <input type="range" class="calc-range-slider" id="calcSpendSlider" min="100" max="3000" step="50"
+                        value="650">
+                    <div
+                        style="display:flex; justify-content:space-between; font-size:0.75rem; color:#a89182; margin-top:8px;">
+                        <span>₹100 (Single Chai)</span>
+                        <span>₹600 (Discount Threshold)</span>
+                        <span>₹1,500 (Baithak Party)</span>
+                        <span>₹3,000 (Group Feast)</span>
+                    </div>
+                </div>
+
+                <div class="calc-stats-grid">
+                    <div class="calc-stat-box">
+                        <div class="calc-stat-val" id="calcCoinsResult">+65 Coins (₹65)</div>
+                        <div class="calc-stat-lbl">10% Charcha Coins Cashback</div>
+                    </div>
+
+                    <div class="calc-stat-box">
+                        <div class="calc-stat-val" id="calcDiscountResult">₹120 Flat OFF</div>
+                        <div class="calc-stat-lbl">Instant Spend Threshold Discount</div>
+                    </div>
+
+                    <div class="calc-stat-box">
+                        <div class="calc-stat-val" id="calcStampResult">1 Stamp</div>
+                        <div class="calc-stat-lbl">Beverage Stamp Unlocked</div>
+                    </div>
+
+                    <div class="calc-stat-box highlight">
+                        <div class="calc-stat-val" id="calcNetSavings" style="color:#4ade80;">₹210 Total Value</div>
+                        <div class="calc-stat-lbl">Total Customer Benefit Value</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION: CASHIER / ADMIN BILLING TERMINAL ================= -->
+        <section class="main-wrapper" id="terminalSection">
+            <div class="section-head">
+                <span class="section-badge">Counter Operations Desk</span>
+                <h3 class="section-title">Cashier & Staff Billing Terminal</h3>
+                <p class="section-desc">
+                    Allows cafe staff to look up customer profiles, apply automated discounts, calculate loyalty coins,
+                    credit stamps, and print thermal receipts.
+                </p>
+            </div>
+
+            <div class="terminal-container">
+                <div class="terminal-header">
+                    <div class="terminal-brand">
+                        <h3>⚡ Chai & Charcha POS Quick-Bill Terminal</h3>
+                        <p>Simulate in-store counter operations • Ludhiana Flagship Hub</p>
+                    </div>
+                    <div class="terminal-live-badge">
+                        <span class="pulse-dot" style="background:#22c55e;"></span>
+                        <span>POS Service Connected</span>
+                    </div>
+                </div>
+
+                <div class="terminal-grid">
+                    <!-- Left: Staff Billing Input Controls -->
+                    <div class="terminal-panel">
+                        <h4>🛒 Enter Customer Order</h4>
+
+                        <div class="form-group">
+                            <label for="posMemberSelect">Select Active Customer</label>
+                            <select id="posMemberSelect" class="form-control-dark">
+                                <!-- Injected from currentMembers -->
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="posBillAmount">Bill Gross Amount (₹ INR)</label>
+                            <input type="number" id="posBillAmount" class="form-control-dark" placeholder="e.g. 650"
+                                value="650" min="0" step="10">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="posItemNotes">Items Ordered (Optional)</label>
+                            <input type="text" id="posItemNotes" class="form-control-dark"
+                                placeholder="e.g. Paneer Tikka Pizza, Virgin Mojito, Chai"
+                                value="Paneer Tikka Pizza x1 + Mint Mojito x1 + Kulhad Chai x1">
+                        </div>
+
+                        <div
+                            style="background: rgba(234, 88, 12, 0.15); border: 1px solid rgba(234, 88, 12, 0.3); border-radius: 8px; padding: 12px; margin-top: 14px;">
+                            <p style="font-size: 0.78rem; color: #fdba74;">
+                                💡 <strong>Automatic Rule Active:</strong> Bills ≥ ₹600 auto-apply the <strong>Flat ₹120
+                                    Group Discount</strong>. Orders ≥ ₹120 automatically earn 1 Digital Stamp.
+                            </p>
+                        </div>
+
+                        <button class="terminal-btn-calc" id="posProcessBtn">
+                            Complete Bill & Credit Rewards (₹)
+                        </button>
+                    </div>
+
+                    <!-- Right: Digital Thermal Receipt Output -->
+                    <div class="terminal-panel">
+                        <h4>🧾 Live Thermal Receipt Preview</h4>
+                        <div class="receipt-preview" id="posReceiptPreview">
+                            <!-- Injected live by calculatePOSPreview() -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION: COMMUNITY PULSE & MEMBER METRICS ================= -->
+        <section class="main-wrapper" id="insightsSection" style="background:#fffcf8; border-top:1px solid #ebdcd1;">
+            <div class="section-head">
+                <span class="section-badge">Brand Performance & Member Trends</span>
+                <h3 class="section-title">Customer Pulse & Member Insights</h3>
+                <p class="section-desc">
+                    Live satisfaction and engagement metrics from our community of 2,400+ registered club members.
+                </p>
+            </div>
+
+            <div class="survey-dashboard-wrap">
+                <div class="survey-meta-banner">
+                    <div>
+                        <h4>Chai & Charcha Community Intelligence</h4>
+                        <p>Real-time customer analytics • Hospitality & Experience Lead: Jatin</p>
+                    </div>
+                    <div class="survey-badge-pcte">
+                        <span>4.85 ★ Guest Rating</span><br>
+                        <span>70% Repeat Club Retention</span>
+                    </div>
+                </div>
+
+                <div class="charts-grid">
+                    <!-- Chart 1: Preferred Reward Formats -->
+                    <div class="chart-card">
+                        <div class="chart-card-head">
+                            <h5>Reward Format Preference</h5>
+                            <span class="chart-section-tag">Most Popular</span>
+                        </div>
+                        <div class="chart-wrapper">
+                            <canvas id="chartRewardFormat"></canvas>
+                        </div>
+                        <div class="survey-analysis-notes">
+                            <strong>Key Takeaway:</strong> 35% of guests favor immediate spending discounts on group
+                            dining, followed by 20% who love digital stamp cards.
+                        </div>
+                    </div>
+
+                    <!-- Chart 2: Reasons for Visiting -->
+                    <div class="chart-card">
+                        <div class="chart-card-head">
+                            <h5>Visit Motivations</h5>
+                            <span class="chart-section-tag">Guest Driver</span>
+                        </div>
+                        <div class="chart-wrapper">
+                            <canvas id="chartVisitReasons"></canvas>
+                        </div>
+                        <div class="survey-analysis-notes">
+                            <strong>Key Takeaway:</strong> Exceptional food & beverages (30%) paired with a warm
+                            atmosphere for meeting friends (25%) drive footfall.
+                        </div>
+                    </div>
+
+                    <!-- Chart 3: Satisfaction Level -->
+                    <div class="chart-card">
+                        <div class="chart-card-head">
+                            <h5>Guest Satisfaction Level</h5>
+                            <span class="chart-section-tag">90% Positive</span>
+                        </div>
+                        <div class="chart-wrapper">
+                            <canvas id="chartSatisfactionLevel"></canvas>
+                        </div>
+                        <div class="survey-analysis-notes">
+                            <strong>Key Takeaway:</strong> Over 90% of diners report feeling satisfied or very satisfied
+                            with our cafe hospitality and reward generosity.
+                        </div>
+                    </div>
+
+                    <!-- Chart 4: Digital Access Channels -->
+                    <div class="chart-card">
+                        <div class="chart-card-head">
+                            <h5>Preferred Digital Access</h5>
+                            <span class="chart-section-tag">Zero Friction</span>
+                        </div>
+                        <div class="chart-wrapper">
+                            <canvas id="chartAccessChannels"></canvas>
+                        </div>
+                        <div class="survey-analysis-notes">
+                            <strong>Key Takeaway:</strong> 70% of guests prefer quick mobile web & counter QR access
+                            over downloading heavy smartphone apps.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Privacy & Data Protection Guarantee -->
+            <div class="privacy-callout-box" style="margin-top:28px;">
+                <div class="privacy-icon">🛡️</div>
+                <div class="privacy-text">
+                    <h4>Customer Trust & Data Protection Pledge</h4>
+                    <p>
+                        We respect your personal privacy. Chai & Charcha operates on a strict zero-spam policy. We only
+                        require your mobile number to identify your reward coins, never share data with third parties,
+                        and keep marketing alerts completely optional.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>Chai & Charcha Cafe & Roastery</h3>
+                <p>
+                    Artisanal Indian coffees, slow-steeped kulhad teas, wood-fired sourdough pizzas, fresh mojitos, and
+                    an authentic community baithak experience.
+                </p>
+                <p style="margin-top: 12px; font-size: 0.74rem; color: #fdba74;">
+                    GSTIN: 03AAAAA0000A1Z5 • FSSAI Lic. 10020064000123
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Navigation</h4>
+                <ul>
+                    <li><a href="#home">Home & Story</a></li>
+                    <li><a href="#overviewSection">Cafe Overview</a></li>
+                    <li><a href="#feedbackSection">Guest Reviews</a></li>
+                    <li><a href="#gallerySection">Visual Showcase</a></li>
+                    <li><a href="#memberPortalSection">Digital Loyalty Pass</a></li>
+                    <li><a href="#menuSection">Gourmet Cafe Menu</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Hospitality Leadership</h4>
+                <ul>
+                    <li><span style="color:#fdba74;">Founder & Lead:</span> Jatin</li>
+                    <li><span style="color:#fdba74;">Concept:</span> Chai, Kaapi & Baithak Lounge</li>
+                    <li><span style="color:#fdba74;">Customer Care:</span> +91 98765-43210</li>
+                    <li><span style="color:#fdba74;">Email:</span> care@chaicharcha.in</li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Our Outlets</h4>
+                <ul>
+                    <li>Model Town Flagship, Ludhiana (Punjab)</li>
+                    <li>Sector 35-C, Chandigarh (UT)</li>
+                    <li>Connaught Place Inner Circle, New Delhi</li>
+                    <li>Open 7 Days • 8:00 AM – 11:30 PM</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <span>© 2026 Chai & Charcha Cafe & Roastery. All rights reserved.</span>
+            <span>Crafted with Pride for Indian Cafe Lovers • Curated by Jatin</span>
+        </div>
+    </footer>
+
+    <!-- Voucher Claim Modal -->
+    <div class="modal-overlay" id="voucherModal">
+        <div class="modal-box">
+            <button class="modal-close-btn" onclick="closeModal('voucherModal')">&times;</button>
+            <div id="voucherModalBody">
+                <!-- Dynamically populated in app.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- External Libraries: QRCode, Chart.js, Confetti -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <!-- Application Scripts -->
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
